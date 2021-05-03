@@ -11,8 +11,19 @@
     <p>Son auteur : <%= gossip[0].author.capitalize%></p>
     <p>Le contenu du potin : <%= gossip[0].content.capitalize%></p>
     <a href='http://localhost:4567/gossips/<%=params['id']%>/edit'><button type=button >Modifier le potin</button></a>
-    <p><a href='http://localhost:4567/'>Lien pour revenir à la page des potins</p>
-    
+    <br/>
+    <br/>
+    <a href='http://localhost:4567/'><button>Revenir à la page des potins</button></a>
+    <h3>Espace commentaires</h3>
+    <form action='/gossips/<%=params['id']%>' method='POST'>
+      Balance ton com' :  <input type='text' name='comment'/><br/>
+      <input type='submit'/>
+    </form>
+    <p>Commentaires (<%=comments.size%>)
+    <%comments.each do |comment|%>
+      <p>--> <%=comment%></p>
+      <hr>
+    <%end %> 
 
   </body>
   
